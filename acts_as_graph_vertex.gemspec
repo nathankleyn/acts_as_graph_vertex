@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.summary = 'Simple mixin for adding graph like functions (parents, children, traversal, etc) to any class.'
   gem.description = "See #{gem.homepage} for more information!"
 
-  gem.files = Dir['**/*'].select { |d| d =~ /^(README.md|lib\/)/ }
+  gem.files = Dir['**/*'].select { |d| d =~ %r{^(README.md|lib/)/} }
 
   gem.add_development_dependency 'coveralls', '~> 0.7'
   gem.add_development_dependency 'filewatcher', '~> 0.3'
