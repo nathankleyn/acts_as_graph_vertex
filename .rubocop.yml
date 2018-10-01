@@ -1,4 +1,19 @@
 require: rubocop-rspec
 
+AllCops:
+  TargetRubyVersion: 2.5
+
 LineLength:
   Max: 120
+
+BlockLength:
+  Max: 200
+
+MethodLength:
+  Max: 20
+
+ExampleLength:
+  Max: 20
+
+MultipleExpectations:
+  Max: 5

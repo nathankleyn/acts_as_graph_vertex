@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 require 'acts_as_graph_vertex'
 
@@ -67,7 +69,7 @@ RSpec.describe(ActsAsGraphVertex) do
     it('does not add the current vertex as a child to the given parent if add_child is false') do
       child4.add_parent(child3, false)
 
-      expect(child3.instance_variable_get(:@children)).to eql(nil)
+      expect(child3.instance_variable_get(:@children)).to be(nil)
     end
   end
 
@@ -93,7 +95,7 @@ RSpec.describe(ActsAsGraphVertex) do
     it('does not add the current vertex as a parent to the given parent if add_parent is false') do
       child3.add_child(child4, false)
 
-      expect(child4.instance_variable_get(:@parents)).to eql(nil)
+      expect(child4.instance_variable_get(:@parents)).to be(nil)
     end
   end
 

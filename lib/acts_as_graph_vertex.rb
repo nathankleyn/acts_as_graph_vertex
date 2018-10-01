@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # A mixin module enabling classes to have parents and children. It provides
 # convenience methods for determining dependencies, and depdenants.
 #
@@ -42,6 +44,7 @@ module ActsAsGraphVertex
   # add_child - Whether to add this item as a child of the given parent.
   def add_parent(vertex, add_child = true)
     return if parents.include?(vertex)
+
     vertex.add_child(self, false) if add_child && vertex.respond_to?(:add_child)
     parents << vertex
   end
@@ -53,6 +56,7 @@ module ActsAsGraphVertex
   # add_parent - Whether to add this item as a parent of the given child.
   def add_child(vertex, add_parent = true)
     return if children.include?(vertex)
+
     vertex.add_parent(self, false) if add_parent && vertex.respond_to?(:add_parent)
     children << vertex
   end
@@ -62,7 +66,7 @@ module ActsAsGraphVertex
   #
   # Returns an Array of parent Objects.
   def all_parents
-    ((parents + parents.map(&:all_parents)).flatten).uniq
+    (parents + parents.map(&:all_parents)).flatten.uniq
   end
 
   # Public: Convenience method to return all of the children from this vertex in
